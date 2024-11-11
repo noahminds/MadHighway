@@ -1,3 +1,7 @@
+Game Start:
+- Before pressing play be sure to double click on the Scene.unity file in Assets->Scenes from within the Unity Editor to load the level.
+
+
 Object Behaviors:
 - Highway: The highway is a continuous scrolling background consisting of several lanes
     along which cars, trucks, and the player's tank move.
