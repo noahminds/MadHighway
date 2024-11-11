@@ -1,15 +1,25 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour {
     private static float score;
     private static TextMeshProUGUI scoreText;
+    private static GameManager gameManager;
 
     internal void Start () {
         scoreText = GetComponent<TextMeshProUGUI>();
+        gameManager = FindObjectOfType<GameManager>();
         UpdateText();
+    }
+
+    internal void Update () {
+        if (score >= gameManager.maxScore)
+        {
+            gameManager.GameOver();
+            score = gameManager.maxScore;
+            UpdateText();
+        }
     }
 
     public static void AddToScore(float points)
@@ -18,8 +28,20 @@ public class ScoreKeeper : MonoBehaviour {
         UpdateText();
     }
 
+    public static void DecrementScore(float points)
+    {
+        score -= points;
+        UpdateText();
+    }
+
+    public static void ResetScore()
+    {
+        score = 0;
+        UpdateText();
+    }
+
     private static void UpdateText()
     {
-        scoreText.text = String.Format("Score: {0}", score);
+        scoreText.text = $"Score: {score}/{gameManager.maxScore}";
     }
 }

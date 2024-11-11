@@ -11,7 +11,8 @@ public class Vehicle : MonoBehaviour
     private Rigidbody2D rigidBody;      // Store reference to the Rigidbody2D component at start
     private Camera mainCamera;          // Store reference to the main camera at start
     private bool spinout = false;       // Flag to indicate if the vehicle is spinning out
-    private bool hasExploded = false;   
+    private bool hasExploded = false;
+    private AudioSource audioSource;
     
     void Start()
     {
@@ -19,6 +20,7 @@ public class Vehicle : MonoBehaviour
         mainCamera = Camera.main;
         rigidBody = GetComponent<Rigidbody2D>();
         vehicleHealth = rigidBody.mass * healthPerMass;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // <summary>
@@ -83,6 +85,12 @@ public class Vehicle : MonoBehaviour
 
         // Increment the score by the vehicle's mass
         ScoreKeeper.AddToScore(rigidBody.mass);
+
+        // Play the explosion sound through the AudioManager
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySound(audioSource.clip);
+        }
 
         // Turn on CircleCollider2D
         GetComponent<CircleCollider2D>().enabled = true;

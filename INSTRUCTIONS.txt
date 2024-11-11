@@ -1,0 +1,43 @@
+Object Behaviors:
+- Highway: The highway is a continuous scrolling background consisting of several lanes
+    along which cars, trucks, and the player's tank move.
+
+- Tank: The player controls the tank that can move in all directions along the highway.
+    The tank can shoot unlimited bullets that move in a straight line and cause damage
+    to vehicles. The tank can also destroy vehicles by directly colliding with them.
+
+- Cars & Trucks: These spawn in at the top of the highway throughout the game. 
+    Vehicles move in a straight line along the highway and can be destroyed by the 
+    player. When hit for the first time the cars begin to spin-out and require a
+    certain number of hits to be destroyed. The number of hits required to destroy
+    a car as well as the points earned by destroying them is indicated by the type
+    of car. All vehicles can be destroyed by ramming into them with the tank. Vehicles
+    are also destroyed if they collide into the barriers on the sides of the highway.
+
+    - Grey/Orange/Red Cars: 2 hits to destroy, 2 points
+    - Green Car: 4 hits to destroy, 4 points
+    - Small Trucks: 5 hits to destroy, 5 points
+    - Large Trucks: 7 hits to destroy, 7 points
+
+- Explosions: When a vehicle is destroyed it explodes and can can cause damage to other
+    vehicles in the vicinity. 
+
+
+Controls:
+- The player can move the tank in all directions using the arrow keys.
+- The player can shoot bullets by pressing or holding down the "F" key.
+
+
+Sound Effects:
+- Explosion Sound: This sound is played when a vehicle is destroyed.
+
+
+Scoring:
+- The player earns points by destroying vehicles. The number of points earned is
+    indicated by the type of vehicle destroyed. The player's score is displayed at
+    the top of the screen.
+- The player wins and the game ends when the player reaches a score of 100 points. This
+  win condition can be changed by modifying the value of the variable "Max Score" in the
+  "GameManager" GameObject in the Scence in the Unity Editor.
+- When the game ends, the player is presented with a "You Win!" message and the option
+  to restart the game by pressing the "ESC" key.
